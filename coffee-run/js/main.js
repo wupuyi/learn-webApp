@@ -8,7 +8,6 @@
     var FormHandler = App.FormHandler;
     var Validation = App.Validation;
     var CheckList = App.CheckList;
-    var webshim = window.webshim;
     var myTruck = new Truck('ncc-1701', new DataStore());
     // 下面一行为  测试 var myTruck2 = new Truck('TANK', new DataStore());
     // 把myTruck暴露到全局命名空间
@@ -30,8 +29,6 @@
 
     formHandler.addInputHandler(Validation.isCompanyEmail);
 
-    webshim.polyfill('forms forms-ext');
-    webshim.setOptions('forms', {addValidators: true, lazyCustomMessages: true});
 
     // console.log(formHandler);
 })(window);
