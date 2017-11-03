@@ -33,7 +33,24 @@
             this.reset();
             this.elements[0].focus();
         })
-    }
+    };
+
+    FormHandler.prototype.addInputHandler = function(fn) {
+        console.log('Setting input handler for form');
+        this.$formElement.on('input', '[name="emailAddress"] ', function(event) {
+            var emailAddress = event.target.value;
+            // console.log(fn(emailAddress));
+            var message = '';
+            if(fn(emailAddress)) {
+                //验证通过
+                event.target.setCustomValidity('');
+            } else {
+                //验证未通过，提示错误信息
+                message = emailAddress + ' is not an authorized email address!';
+                event.target.setCustomValidity(message);
+            }
+        });
+    };
 
     App.FormHandler = FormHandler;
     windoe.App = App;
