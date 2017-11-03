@@ -1,5 +1,6 @@
 var http = require('http');
 var fs = require('fs');
+var wss = require('./websockets-server');
 //  ./extract为路径 
 var extract = require('./extract');
 var handleError = require('./error');
